@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PRO X3 SUPERSTRIKE Obzori</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: dark "inductive instrument" — a long scroll of numbered review chapters, coil-blue for X3, magenta for rivals, steel neutrals. Single dark theme by choice (camera-friendly). */
+:root{
+  color-scheme: dark;
+  --bg:#0a0d12;
+  --panel:#11161e;
+  --panel-2:#171e28;
+  --line:#243041;
+  --fg:#e8edf4;
+  --muted:#8b97a8;
+  --coil:#3aa0ff;        /* X3 / HITS */
+  --coil-soft:rgba(58,160,255,.14);
+  --mag:#e0457b;         /* X2 */
+  --steel:#b9c3d1;       /* Superlight 2 */
+  --good:#3ed59a;
+  --warn:#f2b441;
+  --bad:#ff6b6b;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}
+a{color:var(--coil)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--coil);outline-offset:3px;border-radius:4px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.02}
+h2{font-size:clamp(30px,4.6vw,54px);font-stretch:112%;font-weight:800;letter-spacing:-.01em}
+h3{font-size:20px;font-weight:700;font-stretch:105%}
+p{margin:0}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--coil);display:flex;gap:12px;align-items:center}
+.eyebrow b{color:var(--muted);font-weight:400}
+.lede{color:var(--muted);max-width:62ch;font-size:17px}
+.num{font-variant-numeric:tabular-nums}
+.mono{font-family:var(--f-mono)}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(10,13,18,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:16px;padding-block:10px;flex-wrap:wrap}
+.brand{font-family:var(--f-display);font-weight:800;font-stretch:120%;letter-spacing:.02em;font-size:15px}
+.brand span{color:var(--coil)}
+.bar nav{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+.bar nav a{font-size:13px;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:6px}
+.bar nav a:hover,.bar nav a.on{color:var(--fg);background:var(--panel-2)}
+.btn{font:600 13px var(--f-body);border:1px solid var(--line);background:var(--panel);color:var(--fg);padding:7px 12px;border-radius:8px;cursor:pointer}
+.btn:hover{border-color:var(--coil)}
+.btn[aria-pressed="true"]{background:var(--coil);border-color:var(--coil);color:#04111f}
+@media (max-width:860px){.bar nav{display:none}}
+
+section.slide{padding-block:clamp(56px,9vw,110px);border-bottom:1px solid var(--line);position:relative}
+.head{display:grid;gap:16px;margin-bottom:40px}
+
+/* presentation mode */
+html.present{scroll-snap-type:y mandatory}
+html.present section.slide{min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center}
+html.present body{font-size:18px}
+.hint{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));font:12px var(--f-mono);color:var(--muted);background:var(--panel);border:1px solid var(--line);padding:6px 10px;border-radius:8px;z-index:20}
+.hint[hidden]{display:none}
+
+/* HERO */
+.hero{padding-block:clamp(48px,8vw,96px) clamp(40px,6vw,72px)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,5vw,64px);align-items:center}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}}
+.hero h1{font-size:clamp(52px,9.6vw,128px);font-weight:900;font-stretch:125%;letter-spacing:-.02em;line-height:.88}
+.hero h1 .x3{color:var(--coil);display:block}
+.hero h1 small{display:block;font-size:.26em;font-stretch:100%;font-weight:600;letter-spacing:.32em;color:var(--muted);margin-top:18px}
+.hero .lede{margin-top:24px}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:36px}
+@media (max-width:620px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--panel);padding:18px 16px}
+.kpi .v{font-family:var(--f-display);font-weight:800;font-stretch:115%;font-size:clamp(28px,3.4vw,40px);line-height:1}
+.kpi .v sub{font-size:.42em;vertical-align:baseline;color:var(--muted);font-weight:600;margin-left:3px}
+.kpi .l{font-size:12px;color:var(--muted);margin-top:8px}
+.kpi .d{font:600 11px var(--f-mono);color:var(--good);margin-top:4px}
+.kpi .d.flat{color:var(--muted)}
+.mouse-fig{position:relative;max-width:420px;margin-inline:auto;width:100%}
+.mouse-fig svg{width:100%;height:auto;display:block}
+.fig-cap{font:11px var(--f-mono);color:var(--muted);text-align:center;margin-top:10px;letter-spacing:.08em}
+.pulse{animation:pulse 2.4s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.25}50%{opacity:.9}}
+
+/* WHAT'S NEW: diff */
+.diff{display:grid;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.diff-row{display:grid;grid-template-columns:220px 1fr 1fr 1.3fr;gap:16px;align-items:center;padding:16px 20px;background:var(--panel);border-top:1px solid var(--line)}
+.diff-row:first-child{border-top:0;background:var(--panel-2);font:600 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.diff-row .k{font-weight:600}
+.diff-row .old{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(224,69,123,.6)}
+.diff-row .new{font-family:var(--f-display);font-weight:800;font-stretch:110%;font-size:20px;color:var(--fg)}
+.diff-row .why{color:var(--muted);font-size:14px}
+.tag{display:inline-block;font:600 10px var(--f-mono);letter-spacing:.08em;padding:3px 7px;border-radius:999px;margin-left:8px;vertical-align:middle;text-transform:uppercase}
+.tag.up{background:rgba(62,213,154,.14);color:var(--good)}
+.tag.same{background:rgba(139,151,168,.14);color:var(--muted)}
+.tag.down{background:rgba(255,107,107,.14);color:var(--bad)}
+@media (max-width:820px){.diff-row{grid-template-columns:1fr 1fr}.diff-row:first-child{display:none}.diff-row .k{grid-column:1/-1}.diff-row .why{grid-column:1/-1}}
+
+/* HITS lab */
+.lab{display:grid;grid-template-columns:1.1fr .9fr;gap:24px}
+@media (max-width:900px){.lab{grid-template-columns:1fr}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:clamp(18px,2.4vw,28px);min-width:0}
+.lab svg{width:100%;height:auto;display:block}
+.ctrl{display:grid;gap:8px;margin-top:20px}
+.ctrl label{display:flex;justify-content:space-between;align-items:baseline;font-weight:600;font-size:14px}
+.ctrl label output{font:600 15px var(--f-mono);color:var(--coil)}
+input[type=range]{width:100%;accent-color:var(--coil);height:28px}
+.scale-l{display:flex;justify-content:space-between;font:11px var(--f-mono);color:var(--muted)}
+.readout{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:4px}
+.ro{background:var(--panel-2);border-radius:12px;padding:14px}
+.ro .v{font-family:var(--f-display);font-weight:800;font-stretch:115%;font-size:34px;line-height:1}
+.ro .l{font-size:12px;color:var(--muted);margin-top:6px}
+.explain{display:grid;gap:14px}
+.explain .step{display:grid;grid-template-columns:34px 1fr;gap:12px}
+.explain .step i{font:600 12px var(--f-mono);font-style:normal;color:var(--coil);border:1px solid var(--line);border-radius:8px;height:34px;display:grid;place-items:center}
+.explain .step p{color:var(--muted);font-size:15px}
+.explain .step b{color:var(--fg)}
+.note{font-size:13px;color:var(--muted);border-left:2px solid var(--warn);padding-left:12px;margin-top:16px}
+
+/* compare */
+.cmp-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:20px}
+.seg{display:inline-flex;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:3px}
+.seg button{font:600 13px var(--f-body);background:none;border:0;color:var(--muted);padding:8px 14px;border-radius:8px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--panel-2);color:var(--fg);box-shadow:inset 0 0 0 1px var(--line)}
+.legend{display:flex;gap:14px;margin-left:auto;font-size:13px;color:var(--muted);flex-wrap:wrap}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+table.cmp{width:100%;border-collapse:collapse;min-width:640px}
+.cmp th,.cmp td{padding:14px 16px;text-align:left;border-top:1px solid var(--line);vertical-align:top}
+.cmp thead th{border-top:0;background:var(--panel-2);font-family:var(--f-display);font-stretch:110%;font-weight:800;font-size:17px;position:sticky;top:0}
+.cmp thead th small{display:block;font:500 11px var(--f-mono);color:var(--muted);letter-spacing:.06em;margin-top:4px;font-stretch:100%}
+.cmp thead th.c-x3{color:var(--coil)} .cmp thead th.c-x2{color:var(--mag)} .cmp thead th.c-sl{color:var(--steel)}
+.cmp tbody th{font-weight:600;width:28%;background:var(--panel)}
+.cmp tbody th .ex{display:block;font-weight:400;font-size:13px;color:var(--muted);margin-top:4px;line-height:1.45}
+.cmp td{background:var(--panel);font-variant-numeric:tabular-nums}
+.cmp td.win{background:linear-gradient(0deg,var(--coil-soft),var(--coil-soft)),var(--panel);font-weight:600}
+.cmp td.win::after{content:"▲";font-size:9px;color:var(--good);margin-left:6px;vertical-align:2px}
+.cmp .grp th{background:var(--bg);font:600 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--coil);padding-top:22px}
+body:not(.simple) .cmp .ex{display:none}
+.col-hide{display:none}
+
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px}
+@media (max-width:820px){.charts{grid-template-columns:1fr}}
+.bars{display:grid;gap:12px;margin-top:16px}
+.brow{display:grid;grid-template-columns:110px 1fr 70px;gap:12px;align-items:center;font-size:13px}
+.brow .track{height:12px;background:var(--panel-2);border-radius:6px;overflow:hidden}
+.brow .fill{height:100%;border-radius:6px}
+.brow .val{font:600 13px var(--f-mono);text-align:right}
+.sub{font-size:13px;color:var(--muted);margin-top:6px}
+
+/* ghub */
+.ghub{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.ghub{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.ghub{grid-template-columns:1fr}}
+.feat{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:8px;align-content:start}
+.feat .t{font:600 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--coil)}
+.feat h3{font-size:19px}
+.feat p{color:var(--muted);font-size:14px}
+.feat .scale{display:flex;gap:4px;margin-top:4px}
+.feat .scale span{flex:1;height:6px;border-radius:3px;background:var(--panel-2)}
+.feat .scale span.on{background:var(--coil)}
+.pros-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.pros-list span{font:500 12px var(--f-mono);background:var(--panel-2);border:1px solid var(--line);padding:4px 8px;border-radius:6px}
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+@media (max-width:700px){.shots{grid-template-columns:1fr}}
+.shot{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.shot img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:top left;cursor:zoom-in}
+.shot figcaption{padding:12px 16px;font-size:13px;color:var(--muted)}
+.shot figcaption b{color:var(--fg)}
+.lightbox{position:fixed;inset:0;background:rgba(5,7,10,.94);z-index:50;display:grid;place-items:center;padding:24px;cursor:zoom-out}
+.lightbox img{max-height:90vh;width:auto;border-radius:10px}
+.mine{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:28px}
+@media (max-width:700px){.mine{grid-template-columns:repeat(2,1fr)}}
+.mine div{background:var(--panel-2);padding:16px}
+.mine .v{font-family:var(--f-display);font-weight:800;font-size:28px;font-stretch:115%}
+.mine .l{font-size:12px;color:var(--muted)}
+.mine .head-cell{grid-column:1/-1;background:var(--panel);font:600 11px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--coil)}
+
+/* tests */
+.tests{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media (max-width:960px){.tests{grid-template-columns:1fr}}
+.test .src{font:600 11px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.test h3{margin-top:8px}
+.test .verdict{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line);font-size:14px;color:var(--muted)}
+.test .verdict b{color:var(--fg)}
+
+/* reviews + reddit */
+.scores{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px}
+@media (max-width:820px){.scores{grid-template-columns:1fr}}
+.score{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:10px;align-content:start}
+.score .big{font-family:var(--f-display);font-weight:900;font-stretch:120%;font-size:46px;line-height:1}
+.score .big small{font-size:.4em;color:var(--muted);font-weight:600}
+.score .who{font:600 12px var(--f-mono);color:var(--muted);letter-spacing:.06em}
+.score p{color:var(--muted);font-size:14px}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:760px){.pc{grid-template-columns:1fr}}
+.pc ul{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+.pc li{display:grid;grid-template-columns:22px 1fr;gap:8px;font-size:15px}
+.pc li::before{font:700 14px var(--f-mono)}
+.pc .plus li::before{content:"+";color:var(--good)}
+.pc .minus li::before{content:"−";color:var(--bad)}
+.pc li span{color:var(--muted);font-size:13px;display:block}
+.reddit{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+@media (max-width:900px){.reddit{grid-template-columns:1fr}}
+.post{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:10px;align-content:start}
+.post .u{font:600 12px var(--f-mono);color:var(--mag)}
+.post .u small{color:var(--muted);font-weight:400}
+.post p{font-size:14px;color:var(--fg)}
+.post .topic{font:600 10px var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.pull{margin-top:28px;font-family:var(--f-display);font-stretch:110%;font-weight:700;font-size:clamp(22px,3vw,34px);line-height:1.15;max-width:30ch}
+.pull cite{display:block;font:500 13px var(--f-mono);color:var(--muted);font-style:normal;margin-top:10px}
+
+/* verdict */
+.who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.who-grid{grid-template-columns:1fr}}
+.who{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;display:grid;gap:12px;align-content:start}
+.who .q{font:600 12px var(--f-mono);color:var(--muted);letter-spacing:.06em}
+.who .a{font-family:var(--f-display);font-weight:900;font-stretch:120%;font-size:30px;line-height:1}
+.who .a.yes{color:var(--good)} .who .a.no{color:var(--bad)} .who .a.maybe{color:var(--warn)}
+.who p{color:var(--muted);font-size:14px}
+.final{margin-top:28px;background:linear-gradient(120deg,var(--coil-soft),transparent 70%),var(--panel);border:1px solid var(--line);border-radius:18px;padding:clamp(22px,4vw,40px);display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+@media (max-width:700px){.final{grid-template-columns:1fr}}
+.final .big{font-family:var(--f-display);font-weight:900;font-stretch:125%;font-size:clamp(64px,9vw,104px);line-height:.85;color:var(--coil)}
+.final .big small{font-size:.3em;color:var(--muted)}
+.final p{font-size:17px;max-width:60ch}
+
+.sources{display:grid;grid-template-columns:repeat(2,1fr);gap:8px 32px;font-size:14px;margin-top:16px}
+@media (max-width:700px){.sources{grid-template-columns:1fr}}
+.sources a{text-decoration:none;color:var(--fg);border-bottom:1px solid var(--line);padding:10px 0;display:flex;justify-content:space-between;gap:12px}
+.sources a span{color:var(--muted);font:12px var(--f-mono)}
+.sources a:hover{color:var(--coil)}
+footer{padding-block:40px;color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <div class="brand">PRO <span>X3</span> SUPERSTRIKE</div>
+    <nav aria-label="Bo'limlar">
+      <a href="#yangi">Yangiliklar</a>
+      <a href="#hits">HITS</a>
+      <a href="#compare">Solishtirish</a>
+      <a href="#ghub">G HUB</a>
+      <a href="#tests">Testlar</a>
+      <a href="#fikrlar">Fikrlar</a>
+      <a href="#xulosa">Xulosa</a>
+    </nav>
+    <button class="btn" id="simpleBtn" aria-pressed="true" title="Har bir parametr uchun oddiy tilda izoh">Oddiy tushuntirish</button>
+    <button class="btn" id="presentBtn" aria-pressed="false" title="Bo'limlar ekranga to'liq sig'adi, ← → bilan o'tish">Taqdimot rejimi</button>
+  </div>
+</header>
+<div class="hint" id="hint" hidden>← → yoki PgUp/PgDn — bo'limlar</div>
+
+<main>
+<!-- HERO -->
+<section class="slide hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Logitech G · PRO seriyasi <b>/ Sentyabr 2026</b></div>
+      <h1 style="margin-top:18px">PRO<span class="x3">X3</span><small>SUPERSTRIKE · OBZOR</small></h1>
+      <p class="lede">Klik tugmasi ichida mexanik kalit yo'q. O'rnida elektromagnit g'altak bosilish chuqurligini o'lchaydi, vibratsiya esa "chiq" degan hissni beradi. X3 — bu texnologiyaning ikkinchi avlodi: balansi tuzatilgan, batareyasi uzoqroq, chipseti yangi. Narxi ham oshgan.</p>
+      <div class="kpis">
+        <div class="kpi"><div class="v num">59<sub>g</sub></div><div class="l">Og'irlik (EU: 61 g)</div><div class="d">−2 g · X2 ga nisbatan</div></div>
+        <div class="kpi"><div class="v num">135<sub>soat</sub></div><div class="l">Batareya (rasmiy)</div><div class="d">+45 soat · +50%</div></div>
+        <div class="kpi"><div class="v num">48K<sub>DPI</sub></div><div class="l">HERO 2 sensor</div><div class="d">44K → 48K</div></div>
+        <div class="kpi"><div class="v num">$199<sub>.99</sub></div><div class="l">Narx (AQSh)</div><div class="d" style="color:var(--bad)">+$20 · X2 ga nisbatan</div></div>
+      </div>
+    </div>
+    <figure class="mouse-fig" style="margin:0">
+      <svg viewBox="0 0 320 440" role="img" aria-label="Sichqonchaning yuqoridan sxemasi: chap va o'ng tugma ostida induktiv g'altaklar">
+        <defs>
+          <linearGradient id="shell" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1b232e"/><stop offset="1" stop-color="#0e131a"/></linearGradient>
+          <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#3aa0ff" stop-opacity=".55"/><stop offset="1" stop-color="#3aa0ff" stop-opacity="0"/></radialGradient>
+        </defs>
+        <!-- body -->
+        <path d="M160 18 C 238 18 272 70 276 150 C 282 250 286 330 252 384 C 226 424 192 430 160 430 C 128 430 94 424 68 384 C 34 330 38 250 44 150 C 48 70 82 18 160 18 Z" fill="url(#shell)" stroke="#2d3a4d" stroke-width="1.5"/>
+        <!-- buttons -->
+        <path d="M157 22 C 100 24 56 56 50 140 L 52 196 L 157 196 Z" fill="#0b1017" stroke="#3aa0ff" stroke-width="1.5" stroke-opacity=".7"/>
+        <path d="M163 22 C 220 24 264 56 270 140 L 268 196 L 163 196 Z" fill="#0b1017" stroke="#3aa0ff" stroke-width="1.5" stroke-opacity=".7"/>
+        <!-- coils -->
+        <circle cx="104" cy="120" r="46" fill="url(#glow)" class="pulse"/>
+        <circle cx="216" cy="120" r="46" fill="url(#glow)" class="pulse" style="animation-delay:1.2s"/>
+        <g fill="none" stroke="#3aa0ff" stroke-width="1.2">
+          <ellipse cx="104" cy="120" rx="22" ry="12"/><ellipse cx="104" cy="120" rx="15" ry="8"/><ellipse cx="104" cy="120" rx="8" ry="4"/>
+          <ellipse cx="216" cy="120" rx="22" ry="12"/><ellipse cx="216" cy="120" rx="15" ry="8"/><ellipse cx="216" cy="120" rx="8" ry="4"/>
+        </g>
+        <!-- wheel -->
+        <rect x="149" y="70" width="22" height="66" rx="11" fill="#202a37" stroke="#4a5a70"/>
+        <g stroke="#56677e" stroke-width="1.4"><line x1="153" y1="84" x2="167" y2="84"/><line x1="153" y1="94" x2="167" y2="94"/><line x1="153" y1="104" x2="167" y2="104"/><line x1="153" y1="114" x2="167" y2="114"/><line x1="153" y1="124" x2="167" y2="124"/></g>
+        <!-- side buttons -->
+        <rect x="38" y="214" width="7" height="34" rx="3" fill="#2a3544"/><rect x="38" y="256" width="7" height="34" rx="3" fill="#2a3544"/>
+        <!-- center of mass marker -->
+        <g transform="translate(160 262)">
+          <circle r="9" fill="none" stroke="#3ed59a" stroke-width="1.5"/>
+          <line x1="-15" y1="0" x2="15" y2="0" stroke="#3ed59a"/><line x1="0" y1="-15" x2="0" y2="15" stroke="#3ed59a"/>
+        </g>
+        <g transform="translate(160 214)" opacity=".7">
+          <circle r="6" fill="none" stroke="#e0457b" stroke-width="1.3" stroke-dasharray="2 2"/>
+        </g>
+        <text x="182" y="266" fill="#3ed59a" font-family="JetBrains Mono, monospace" font-size="10">X3 og'irlik markazi</text>
+        <text x="174" y="210" fill="#e0457b" font-family="JetBrains Mono, monospace" font-size="10">X2 (oldinga siljigan)</text>
+        <text x="104" y="160" fill="#8b97a8" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">HITS g'altak</text>
+        <text x="216" y="160" fill="#8b97a8" font-family="JetBrains Mono, monospace" font-size="9" text-anchor="middle">HITS g'altak</text>
+      </svg>
+      <figcaption class="fig-cap">SXEMA · 125 × 63.5 × 40 mm · "kartoshka" shakli, 2018-yildan beri bir xil</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- WHAT'S NEW -->
+<section class="slide" id="yangi">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">01 <b>/ X2 → X3 nima o'zgardi</b></div>
+      <h2>Tashqarisi o'sha. Ichi boshqa.</h2>
+      <p class="lede">X2 SUPERSTRIKE 2026-yil fevralda chiqdi, X3 esa atigi 7 oydan keyin. Shakl, tugmalar, HITS kalitlari, g'ildirak va oyoqchalar bir xil. Barcha asosiy farq ichki qismda.</p>
+    </div>
+    <div class="diff">
+      <div class="diff-row"><div>Parametr</div><div>X2</div><div>X3</div><div>Bu nima beradi</div></div>
+      <div class="diff-row"><div class="k">Og'irlik balansi <span class="tag up">tuzatildi</span></div><div class="old">Oldinga og'ir</div><div class="new">Markazda</div><div class="why">Ko'tarib qo'yish va mayda harakatlar tabiiyroq. Eng ko'p so'ralgan tuzatish shu edi.</div></div>
+      <div class="diff-row"><div class="k">Og'irlik</div><div class="old num">61 g</div><div class="new num">59 g</div><div class="why">Faqat EU dan tashqarida. Yevropada batareya almashtiriladigan bo'lgani uchun 61 g qoladi.</div></div>
+      <div class="diff-row"><div class="k">Chipset <span class="tag up">yangi</span></div><div class="old">Nordic nRF52833</div><div class="new">NxLOGI</div><div class="why">Logitech'ning o'z chipi (nRF54 asosida). Quvvatni 50% kam yeydi, simsiz aloqa barqarorroq.</div></div>
+      <div class="diff-row"><div class="k">Batareya</div><div class="old num">90 soat</div><div class="new num">135 soat</div><div class="why">Rasmiy +50%. Club386 real testida ~+25% chiqdi (4000 Hz, haptika 3).</div></div>
+      <div class="diff-row"><div class="k">Sensor HERO 2</div><div class="old num">44K DPI · 888 IPS · 88G</div><div class="new num">48K · 930 · 90G</div><div class="why">Qog'ozda yaxshiroq. O'yinda farqni sezish deyarli imkonsiz.</div></div>
+      <div class="diff-row"><div class="k">1000 Hz'da klik kechikishi</div><div class="old num">0.31 ms</div><div class="new num">0.12 ms</div><div class="why">Club386 OSLTT testi. Bir xil HITS, lekin yangi chip pastroq polling'da 2.5× tezroq.</div></div>
+      <div class="diff-row"><div class="k">HITS kalitlari <span class="tag same">bir xil</span></div><div class="old">10 / 5 / 5</div><div class="new">10 / 5 / 5</div><div class="why">Aktuatsiya, Rapid Trigger va haptika darajalari o'zgarmagan. Haptika biroz kuchsizroq sezilishi mumkin.</div></div>
+      <div class="diff-row"><div class="k">Ranglar</div><div class="old">Qora, oq-qora</div><div class="new">Qora, Magenta</div><div class="why">Tugmalar ikkala variantda ham qora, oq "+" belgi bilan.</div></div>
+      <div class="diff-row"><div class="k">Narx <span class="tag down">oshdi</span></div><div class="old num">$179.99</div><div class="new num">$199.99</div><div class="why">Yevropada €189.99, Buyuk Britaniyada £169.99.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HITS -->
+<section class="slide" id="hits">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">02 <b>/ HITS qanday ishlaydi</b></div>
+      <h2>Klikni o'zingiz "chizasiz"</h2>
+      <p class="lede">HITS — Haptic Inductive Trigger System. Oddiy sichqonchada klik doim bir joyda ishlaydi. Bu yerda esa qayerda ishlashini siz tanlaysiz. Slayderni suring.</p>
+    </div>
+    <div class="lab">
+      <div class="card">
+        <svg viewBox="0 0 520 250" id="pressSvg" aria-label="Tugma bosilish chuqurligi sxemasi">
+          <!-- base -->
+          <rect x="40" y="208" width="440" height="10" rx="3" fill="#1c2531"/>
+          <!-- coil -->
+          <g transform="translate(330 196)" fill="none" stroke="#3aa0ff" stroke-width="1.4">
+            <ellipse rx="54" ry="7"/><ellipse rx="40" ry="5"/><ellipse rx="26" ry="3.4"/>
+          </g>
+          <text x="330" y="238" text-anchor="middle" fill="#8b97a8" font-family="JetBrains Mono,monospace" font-size="11">induktiv g'altak — masofani o'lchaydi</text>
+          <!-- depth scale -->
+          <g id="ticks" font-family="JetBrains Mono,monospace" font-size="10" fill="#8b97a8"></g>
+          <!-- actuation line -->
+          <line id="actLine" x1="60" x2="470" y1="0" y2="0" stroke="#3aa0ff" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text id="actTxt" x="470" y="0" text-anchor="end" fill="#3aa0ff" font-family="JetBrains Mono,monospace" font-size="11">klik shu yerda</text>
+          <line id="stdLine" x1="60" x2="470" y1="0" y2="0" stroke="#f2b441" stroke-width="1" stroke-opacity=".7"/>
+          <text id="stdTxt" x="470" y="0" text-anchor="end" fill="#f2b441" font-family="JetBrains Mono,monospace" font-size="11">oddiy kalit (~5)</text>
+          <!-- pivot + button -->
+          <circle cx="60" cy="70" r="6" fill="#4a5a70"/>
+          <g id="btn">
+            <path d="M60 64 L 440 64 Q 456 64 456 76 L 456 82 L 60 82 Z" fill="#202a37" stroke="#3aa0ff" stroke-opacity=".5"/>
+            <rect x="320" y="82" width="22" height="18" fill="#2a3544"/>
+          </g>
+          <!-- finger -->
+          <g id="finger"><path d="M392 30 q 26 -2 30 22 l 2 10 l -36 0 z" fill="#8b97a8" opacity=".55"/></g>
+        </svg>
+        <div class="ctrl">
+          <label for="act">Aktuatsiya nuqtasi <output id="actOut">2</output></label>
+          <input type="range" id="act" min="1" max="10" value="2">
+          <div class="scale-l"><span>1 · qisqa klik</span><span>10 · uzun klik</span></div>
+        </div>
+        <div class="readout" style="margin-top:16px">
+          <div class="ro"><div class="v num" id="rtime">164 ms</div><div class="l">G HUB testidagi reaksiya vaqti</div></div>
+          <div class="ro"><div class="v num" id="saved" style="color:var(--good)">−18 ms</div><div class="l">Oddiy kalitga (182 ms) nisbatan</div></div>
+        </div>
+        <p class="note">Raqamlar mening G HUB "HITS testirovaniyasi"dan: oddiy kalit darajasida reaksiyam 182 ms chiqdi, dastur boshqa darajalar uchun vaqtni hisoblab ko'rsatdi. 1-darajada esa natija o'rniga "∞ ms" chiqdi — dasturdagi kulgili xato.</p>
+      </div>
+      <div class="card explain">
+        <h3>Uchta sozlama, bitta klik</h3>
+        <div class="step"><i>01</i><p><b>Aktuatsiya nuqtasi (1–10).</b> Tugmani qancha bosganda klik hisoblanadi. 1 — pat tegizgandek, 10 — to'liq bosish. Oddiy sichqoncha taxminan 5-daraja.</p></div>
+        <div class="step"><i>02</i><p><b>Rapid Trigger (1–5).</b> Barmoqni qancha ko'targanda tugma qayta "tayyor" bo'ladi. Kichik qiymat = tez-tez otish (spam), lekin tasodifiy qo'yib yuborish xavfi bor.</p></div>
+        <div class="step"><i>03</i><p><b>Klik haptikasi (O'chiq + 1–5).</b> Mexanik "chiq" yo'q, uni vibratsiya taqlid qiladi. MacBook trackpad'i yoki Steam Deck'ga o'xshash his. Kuchliroq = ko'proq batareya.</p></div>
+        <div class="step"><i>04</i><p><b>Kechikish da'vosi.</b> Logitech: oddiy kalitlarga nisbatan 30 ms gacha tezroq. Bu tugma qisqaroq yo'l bosgani hisobiga — elektronikaning o'zi emas.</p></div>
+        <p class="note" style="border-color:var(--coil)">Reddit'dagi egasi: 1-1 sozlamada klik eng tez, lekin noto'g'ri kliklar juda ko'p. U 3-3 da o'ynaydi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="slide" id="compare">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">03 <b>/ Solishtirish</b></div>
+      <h2>X3 vs X2 vs Superlight 2</h2>
+      <p class="lede">Uchalasi bir xil korpusda. Farq — tugma texnologiyasi, chip va batareyada. Juftlikni tanlang. Yashil belgi — g'olib.</p>
+    </div>
+    <div class="cmp-tools">
+      <div class="seg" role="group" aria-label="Solishtirish juftligi">
+        <button data-set="all" aria-pressed="true">Uchalasi</button>
+        <button data-set="x2" aria-pressed="false">X3 vs X2</button>
+        <button data-set="sl" aria-pressed="false">X3 vs Superlight 2</button>
+      </div>
+      <div class="legend"><span><i style="background:var(--coil)"></i>PRO X3 SUPERSTRIKE</span><span><i style="background:var(--mag)"></i>PRO X2 SUPERSTRIKE</span><span><i style="background:var(--steel)"></i>PRO X SUPERLIGHT 2</span></div>
+    </div>
+    <div class="tbl-wrap">
+      <table class="cmp" id="cmp">
+        <thead><tr>
+          <th scope="col">Parametr</th>
+          <th scope="col" class="c-x3" data-c="x3">PRO X3 SUPERSTRIKE<small>SENT 2026 · $199.99</small></th>
+          <th scope="col" class="c-x2" data-c="x2">PRO X2 SUPERSTRIKE<small>FEV 2026 · $179.99</small></th>
+          <th scope="col" class="c-sl" data-c="sl">PRO X SUPERLIGHT 2<small>2023 · $159.99</small></th>
+        </tr></thead>
+        <tbody id="cmpBody"></tbody>
+      </table>
+    </div>
+    <div class="charts">
+      <div class="card">
+        <h3>Batareya, soat</h3>
+        <p class="sub">Rasmiy maksimum. X2/X3 uchun Club386 real testi chiziqli hisob bilan (4000 Hz, haptika 3).</p>
+        <div class="bars" id="battBars"></div>
+      </div>
+      <div class="card">
+        <h3>Klik kechikishi, 1000 Hz</h3>
+        <p class="sub">Club386 OSLTT, 100 klik o'rtachasi. Kamroq = yaxshiroq. 8000 Hz'da ikkala Superstrike ham 0.02 ms dan oshmadi.</p>
+        <div class="bars" id="latBars"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GHUB -->
+<section class="slide" id="ghub">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">04 <b>/ G HUB'da X3 uchun</b></div>
+      <h2>Sozlamalar markazi</h2>
+      <p class="lede">HITS'ning butun "sehri" G HUB orqali ochiladi. Sozlaganingizdan keyin hammasi sichqonchaning ichki xotirasiga yoziladi — boshqa kompyuterda ham ishlaydi.</p>
+    </div>
+    <div class="ghub">
+      <div class="feat"><div class="t">HITS konfiguratsiyasi</div><h3>Aktuatsiya nuqtasi</h3><p>10 daraja, "Qisqa klik" dan "Uzun klik" gacha. Chap va o'ng tugmani alohida yoki birga sozlash mumkin.</p><div class="scale"><span class="on"></span><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+      <div class="feat"><div class="t">HITS konfiguratsiyasi</div><h3>Rapid Trigger</h3><p>5 ta qaytish nuqtasi. Tugma qancha ko'tarilganda yana otishga tayyor bo'lishini belgilaydi.</p><div class="scale"><span class="on"></span><span></span><span></span><span></span><span></span></div></div>
+      <div class="feat"><div class="t">HITS konfiguratsiyasi</div><h3>Klik haptikasi</h3><p>"Vykl" (o'chiq) dan "Intensiv" gacha 5 kuch. O'chirsangiz — klik umuman sezilmaydi, g'alati tajriba.</p><div class="scale"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></div></div>
+      <div class="feat"><div class="t">Yangi</div><h3>PRO presetlar</h3><p>Logitech homiyligidagi pro o'yinchilarning aniq HITS sozlamalari, bir bosishda.</p><div class="pros-list"><span>Gryffinn</span><span>KSCERATO</span><span>m0NESY</span><span>MrFaliN</span><span>ShowMaker</span><span>Whzy</span></div></div>
+      <div class="feat"><div class="t">Yangi</div><h3>HITS kodi va testi</h3><p>"HITS kodi" bilan sozlamani do'stingizga ulashing. "Testirovaniye HITS" — reaksiyangizni o'lchab, har daraja qancha vaqt tejashini ko'rsatadi.</p></div>
+      <div class="feat"><div class="t">Sezgirlik</div><h3>8000 Hz + kalibrovka</h3><p>5 ta DPI slot, simli va simsiz rejimda 8000 Hz gacha polling, turli gilamchalar uchun HERO sensor kalibrovkasi. BHOP rejimi — g'ildirak uchun 100–1000 ms kechikish.</p></div>
+    </div>
+
+    <div class="mine">
+      <div class="head-cell">Mening sozlamalarim · "Novaya predustanovka PRO 1"</div>
+      <div><div class="v num">2</div><div class="l">Aktuatsiya (L va P)</div></div>
+      <div><div class="v num">1</div><div class="l">Rapid Trigger</div></div>
+      <div><div class="v num">2</div><div class="l">Haptika</div></div>
+      <div><div class="v num">800</div><div class="l">DPI (1-slot)</div></div>
+      <div><div class="v num">8K</div><div class="l">Hz · simli va simsiz</div></div>
+    </div>
+
+    <div class="shots">
+      <figure class="shot"><img src="img/presets.jpg" alt="G HUB: PRO presetlar ro'yxati" loading="lazy"><figcaption><b>PRO presetlar.</b> Pro o'yinchilar ro'yxati va o'zingizning presetingiz.</figcaption></figure>
+      <figure class="shot"><img src="img/test.jpg" alt="G HUB: HITS kechikish testi oynasi" loading="lazy"><figcaption><b>HITS testi.</b> Har bir aktuatsiya darajasi uchun reaksiya vaqti shkalasi.</figcaption></figure>
+      <figure class="shot"><img src="img/haptic.jpg" alt="G HUB: klik haptikasi sozlamasi" loading="lazy"><figcaption><b>Klik haptikasi.</b> O'chiqdan intensivgacha slayder.</figcaption></figure>
+      <figure class="shot"><img src="img/dpi.jpg" alt="G HUB: sezgirlik va 8000 Hz polling" loading="lazy"><figcaption><b>Sezgirlik.</b> 5 DPI slot, 8000 Hz simli va simsiz, HERO kalibrovkasi.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- TESTS -->
+<section class="slide" id="tests">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">05 <b>/ Mustaqil testlar</b></div>
+      <h2>Sichqoncha tez. Siz-chi?</h2>
+      <p class="lede">Ikki xil savol bor: sichqoncha klikni qancha tez yuboradi va odam bundan qancha tez reaksiya qiladi. Javoblar har xil.</p>
+    </div>
+    <div class="tests">
+      <div class="card test">
+        <div class="src">Club386 · OSLTT asbobi</div>
+        <h3>Elektronika: eng past kechikish</h3>
+        <div class="bars" id="oslttBars"></div>
+        <p class="verdict"><b>Natija:</b> 1000 Hz'da X3 o'rtacha 0.12 ms — sinalgan sichqonchalar orasida eng yaxshi va eng barqaror (min–max farqi 0.18 ms).</p>
+      </div>
+      <div class="card test">
+        <div class="src">PC Gamer · Human Benchmark, 150 klik</div>
+        <h3>Inson: farq ko'rinmadi</h3>
+        <div class="bars" id="humanBars"></div>
+        <p class="verdict"><b>Natija:</b> Optik kalitli Sensei Pro bilan X3 orasida amaliy farq yo'q. Muallif fikricha, uyqu va suv ichish reaksiyaga ancha ko'proq ta'sir qiladi.</p>
+      </div>
+      <div class="card test">
+        <div class="src">Club386 · 8 soatlik real foydalanish</div>
+        <h3>Batareya: va'dadan kamroq, lekin ko'p</h3>
+        <div class="bars" id="realBatt"></div>
+        <p class="verdict"><b>Natija:</b> X3 soatiga ~1% yo'qotdi (~100 soat), X2 esa ~80 soat. Real hayotda +50% emas, taxminan +25%.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPINIONS -->
+<section class="slide" id="fikrlar">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">06 <b>/ Sharhlovchilar va hamjamiyat</b></div>
+      <h2>Kim nima deydi</h2>
+    </div>
+    <div class="scores">
+      <div class="score"><div class="who">PROSETTINGS.NET · Lars</div><div class="big num">4.5<small> / 5</small></div><p>"Staff's Choice". HITS — kelajak, lekin X3 yangi avloddan ko'ra X2 ning sayqallangan versiyasiga o'xshaydi. X2 egalariga yangilanish kerak emas.</p></div>
+      <div class="score"><div class="who">CLUB386 · Damien Mason</div><div class="big num">4.5<small> / 5</small></div><p>"Recommended". Sinagan eng past kechikishli sichqoncha. X2 dastlab qanday bo'lishi kerak edi — X3 shunday.</p></div>
+      <div class="score"><div class="who">PC GAMER · Jacob Fox</div><div class="big" style="font-size:30px;line-height:1.1">Placebo&nbsp;ehtimoli</div><p>Reaksiya testida X3 (1 va 3-daraja) oddiy optik sichqonchadan sezilarli farq qilmadi.</p></div>
+    </div>
+    <div class="pc">
+      <div class="card plus"><h3 style="color:var(--good)">Kuchli tomonlari</h3><ul>
+        <li><div>HITS — klikni to'liq moslash<span>Aktuatsiya, Rapid Trigger, haptika — hech bir raqobatchida yo'q</span></div></li>
+        <li><div>Balans tuzatildi<span>X2 dagi oldinga og'irlik yo'qoldi</span></div></li>
+        <li><div>Batareya uzoq<span>135 soat rasmiy, 4000 Hz'da ham bir necha kun</span></div></li>
+        <li><div>Eng past klik kechikishi<span>1000 Hz'da 0.12 ms</span></div></li>
+        <li><div>Xavfsiz, sinalgan shakl<span>Deyarli har qanday qo'l va ushlash turiga mos</span></div></li>
+        <li><div>Asosiy tugmalar jim<span>Kechasi o'ynaganda yaxshi</span></div></li>
+      </ul></div>
+      <div class="card minus"><h3 style="color:var(--bad)">Zaif tomonlari</h3><ul>
+        <li><div>Narx: $199.99<span>Brendli sichqonchalar orasida eng qimmatlaridan</span></div></li>
+        <li><div>DPI tugmasi yo'q<span>Faqat G HUB yoki boshqa tugmani qayta belgilash orqali</span></div></li>
+        <li><div>Yon tugmalar biroz yumshoq<span>X2 va Superlight 2 bilan bir xil his</span></div></li>
+        <li><div>Oyoqchalar xira, g'adir-budur<span>Ko'pchilik aftermarket oyoqcha qo'yadi</span></div></li>
+        <li><div>G'ildirak bosishi muammosi qoldi<span>Bosim biroz bo'shasa, bosish uziladi</span></div></li>
+        <li><div>Veb-drayver yo'q<span>Faqat G HUB</span></div></li>
+      </ul></div>
+    </div>
+
+    <div class="reddit">
+      <div class="post"><div class="topic">Balans</div><div class="u">u/Hajdu70 <small>· obzor muallifi</small></div><p>X2 balansi yomon edi, X3 da esa mukammal — eski GPX2 darajasida. Logitech vakili ham izohda rahmat aytdi.</p></div>
+      <div class="post"><div class="topic">Yonma-yon</div><div class="u">u/slom26</div><p>Avval farq sezmadim, keyin ikkalasini yonma-yon o'ynab ko'rdim — X2 aniq oldinga og'ir ekan.</p></div>
+      <div class="post"><div class="topic">Nega faqat −2 g?</div><div class="u">u/damien09</div><p>HITS tizimi og'ir va eng oldinda turadi. Orqadan og'irlik olib tashlansa, sichqoncha yana oldinga og'ib qoladi.</p></div>
+      <div class="post"><div class="topic">Narx</div><div class="u">u/itzNukeey</div><p>50 dollar arzon bo'lsa olardim. Izohlarda ko'pchilik $200 ni ortiqcha deb hisoblaydi.</p></div>
+      <div class="post"><div class="topic">G'ildirak</div><div class="u">u/AmarildoJr · u/drkushs</div><p>G'ildirak bosilganda bosimni ozgina bo'shatsangiz, klik uziladi. Muallif tekshirdi: X3 da ham shunday.</p></div>
+      <div class="post"><div class="topic">Qoplama</div><div class="u">u/Hajdu70</div><p>Yaxshi ushlaydi, yangi GPX2 yoki X2 dagidek. X3 biroz rezinaroq sezilishi mumkin.</p></div>
+    </div>
+    <blockquote class="pull" style="margin-inline:0">"If the X2 was the alpha game, it is a beta game"<cite>— u/Hajdu70, r/MouseReview</cite></blockquote>
+  </div>
+</section>
+
+<!-- VERDICT -->
+<section class="slide" id="xulosa">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">07 <b>/ Kimga kerak</b></div>
+      <h2>Olish kerakmi?</h2>
+    </div>
+    <div class="who-grid">
+      <div class="who"><div class="q">SIZDA X2 SUPERSTRIKE BOR</div><div class="a no">Kerak emas</div><p>HITS, shakl va hatto (Yevropada) og'irlik bir xil. Faqat oldinga og'irlik o'yiningizga xalaqit bersa o'ylab ko'ring. Batareyani shunchaki tez-tez quvvatlang.</p></div>
+      <div class="who"><div class="q">SIZDA SUPERLIGHT 2 BOR</div><div class="a maybe">Sinab ko'ring</div><p>Shakl tanish, sakrash HITS uchun. Haptik klik hammaga yoqmaydi — agar imkon bo'lsa avval qo'lda ushlang yoki chegirmani kuting.</p></div>
+      <div class="who"><div class="q">YANGI XARIDOR · RAQOBATCHI O'YINCHI</div><div class="a yes">X3 ni oling</div><p>Superstrike olmoqchi bo'lsangiz, X3 aniq yaxshiroq. Byudjet cheklangan bo'lsa — chegirmadagi X2 deyarli bir xil tajriba beradi.</p></div>
+    </div>
+    <div class="final">
+      <div class="big num">8.5<small> /10</small></div>
+      <p><b>Mening xulosam:</b> PRO X3 SUPERSTRIKE — bugungi kundagi eng ilg'or klik texnologiyasiga ega sichqoncha va X2 ning barcha asosiy kamchiliklarini (balans, batareya) tuzatgan versiya. Lekin bu inqilob emas, sayqal. Yangi narx, eski oyoqchalar va g'ildirak $200 lik sichqonchaga mos emas. HITS sizni avtomatik ravishda yaxshiroq o'yinchi qilmaydi — lekin klikni aynan o'zingizga moslash imkonini beradi.</p>
+    </div>
+    <p class="note" style="margin-top:20px">Ball — mening shaxsiy bahom, qayta yozing.</p>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="slide" id="manbalar" style="border-bottom:0">
+  <div class="wrap">
+    <div class="eyebrow">Manbalar</div>
+    <div class="sources">
+      <a href="https://www.logitechg.com/en-us/shop/p/pro-x3-superstrike-mouse.910-007876" target="_blank" rel="noopener">Logitech G · rasmiy sahifa <span>spec, narx</span></a>
+      <a href="https://prosettings.net/reviews/logitech-g-pro-x3-superstrike/" target="_blank" rel="noopener">ProSettings.net · obzor <span>4.5/5</span></a>
+      <a href="https://www.club386.com/logitech-g-pro-x3-superstrike-review/" target="_blank" rel="noopener">Club386 · obzor va testlar <span>4.5/5</span></a>
+      <a href="https://www.pcgamer.com/" target="_blank" rel="noopener">PC Gamer · Jacob Fox, 30.09.2026 <span>reaksiya testi</span></a>
+      <a href="https://www.reddit.com/r/MouseReview/" target="_blank" rel="noopener">r/MouseReview · "Pro X3 SUPERSTRIKE Review! AMA" <span>hamjamiyat</span></a>
+      <a href="https://versus.com/en/logitech-g-pro-x3-superstrike" target="_blank" rel="noopener">versus.com · spec taqqoslash <span>qo'shimcha</span></a>
+    </div>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">YouTube obzori uchun tayyorlangan · Ma'lumotlar 2026-yil 8-oktyabr holatiga</div></footer>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  const C={x3:'var(--coil)',x2:'var(--mag)',sl:'var(--steel)'};
+
+  /* ---------- HITS lab ---------- */
+  const RT={1:null,2:164,3:173,4:178,5:182,6:185,7:188,8:191,9:194,10:207};
+  const top=104, bot=190, step=(bot-top)/9;
+  const yOf=l=>top+(l-1)*step;
+  const ticks=$('#ticks');
+  for(let l=1;l<=10;l++){
+    const y=yOf(l);
+    ticks.insertAdjacentHTML('beforeend',`<line x1="476" x2="486" y1="${y}" y2="${y}" stroke="#3a4a60"/><text x="492" y="${y+3.5}">${l}</text>`);
+  }
+  const sY=yOf(5); ['stdLine'].forEach(id=>{$('#'+id).setAttribute('y1',sY);$('#'+id).setAttribute('y2',sY)}); $('#stdTxt').setAttribute('y',sY-5);
+  function upd(){
+    const l=+$('#act').value; $('#actOut').textContent=l;
+    const y=yOf(l);
+    $('#actLine').setAttribute('y1',y);$('#actLine').setAttribute('y2',y);$('#actTxt').setAttribute('y',l>=5&&l<=6? y+14 : y-5);
+    // rotate button so that plunger (x≈331) reaches depth y
+    const dy=y-100; const ang=Math.atan2(dy,331-60)*180/Math.PI;
+    $('#btn').setAttribute('transform',`rotate(${ang.toFixed(2)} 60 70)`);
+    const fy=(400-60)*Math.tan(ang*Math.PI/180);
+    $('#finger').setAttribute('transform',`translate(0 ${fy.toFixed(1)})`);
+    const v=RT[l];
+    $('#rtime').textContent= v? v+' ms' : '∞ ms';
+    const s=v? v-182 : null;
+    const sv=$('#saved');
+    if(s===null){sv.textContent='eng tez';sv.style.color='var(--good)'}
+    else{sv.textContent=(s>0?'+':s<0?'−':'±')+Math.abs(s)+' ms';sv.style.color=s<0?'var(--good)':s>0?'var(--bad)':'var(--muted)'}
+  }
+  $('#act').addEventListener('input',upd); upd();
+
+  /* ---------- Compare table ---------- */
+  // w: which column(s) win; use [] for no winner
+  const rows=[
+    {g:'Asosiy'},
+    {k:'Tugma texnologiyasi',ex:'Klikni nima qayd etadi.',x3:'HITS (induktiv + haptik)',x2:'HITS (induktiv + haptik)',sl:'LIGHTFORCE gibrid (optik-mexanik)',w:['x3','x2']},
+    {k:'Aktuatsiya sozlamasi',ex:'Klik qayerda ishlashini o\'zgartirish mumkinmi.',x3:'10 daraja',x2:'10 daraja',sl:'Yo\'q (qat\'iy)',w:['x3','x2']},
+    {k:'Rapid Trigger',ex:'Tugma qayta otishga qachon tayyor bo\'ladi.',x3:'5 daraja',x2:'5 daraja',sl:'Yo\'q',w:['x3','x2']},
+    {k:'Klik hissi',ex:'Barmoq nimani sezadi.',x3:'Vibratsiya, 5 kuch',x2:'Vibratsiya, 5 kuch',sl:'Mexanik "chiq"',w:[]},
+    {g:'Korpus'},
+    {k:'Og\'irlik',ex:'Yengil sichqoncha tezroq harakatlanadi, kam charchatadi.',x3:'59 g (EU 61 g)',x2:'61 g',sl:'60 g',w:['x3']},
+    {k:'Og\'irlik balansi',ex:'Og\'irlik markazi qayerda. Oldinga og\'ir bo\'lsa, ko\'targanda burilib ketadi.',x3:'Markazda',x2:'Oldinga og\'ir',sl:'Markazda',w:['x3','sl']},
+    {k:'O\'lcham',ex:'Uzunlik × kenglik × balandlik.',x3:'125 × 63.5 × 40 mm',x2:'125 × 63.5 × 40 mm',sl:'125 × 63.5 × 40 mm',w:[]},
+    {k:'DPI tugmasi',ex:'Sezgirlikni tez almashtirish tugmasi.',x3:'Yo\'q',x2:'Yo\'q',sl:'Yo\'q',w:[]},
+    {g:'Sensor va aloqa'},
+    {k:'Sensor',ex:'Harakatni o\'qiydigan "ko\'z".',x3:'HERO 2 (yangilangan)',x2:'HERO 2',sl:'HERO 2',w:[]},
+    {k:'Maks. DPI',ex:'Sezgirlik chegarasi. Amalda ko\'pchilik 400–3200 da o\'ynaydi.',x3:'48 000',x2:'44 000',sl:'44 000',w:['x3']},
+    {k:'Tezlik / tezlanish',ex:'Sensor yo\'qotmasdan kuzatadigan maksimal harakat.',x3:'930 IPS · 90 G',x2:'888 IPS · 88 G',sl:'888 IPS · 88 G',w:['x3']},
+    {k:'Polling rate',ex:'Sichqoncha kompyuterga soniyada necha marta xabar beradi.',x3:'8000 Hz simli/simsiz',x2:'8000 Hz',sl:'8000 Hz',w:[]},
+    {k:'Chipset',ex:'Sichqonchaning "miyasi".',x3:'NxLOGI (nRF54 asosida)',x2:'Nordic nRF52833',sl:'Nordic nRF52833',w:['x3']},
+    {k:'Klik kechikishi @1000 Hz',ex:'Klik bosilgandan kompyuterga yetguncha. Club386 testi.',x3:'0.12 ms',x2:'0.31 ms',sl:'Sinalmagan',w:['x3']},
+    {g:'Batareya va narx'},
+    {k:'Batareya (rasmiy)',ex:'Bir quvvatlashda maksimal ish vaqti.',x3:'135 soat',x2:'90 soat',sl:'95 soat',w:['x3']},
+    {k:'POWERPLAY',ex:'Gilamchadan simsiz quvvatlash.',x3:'Bor',x2:'Bor',sl:'Bor',w:[]},
+    {k:'Narx (AQSh MSRP)',ex:'Rasmiy tavsiya etilgan narx.',x3:'$199.99',x2:'$179.99',sl:'$159.99',w:['sl']}
+  ];
+  const body=$('#cmpBody');
+  body.innerHTML=rows.map(r=> r.g? `<tr class="grp"><th colspan="4" scope="colgroup">${r.g}</th></tr>`
+   : `<tr><th scope="row">${r.k}<span class="ex">${r.ex}</span></th>${['x3','x2','sl'].map(c=>`<td data-c="${c}" class="${r.w.includes(c)?'win':''}">${r[c]}</td>`).join('')}</tr>`).join('');
+  function setCols(set){
+    const hide= set==='x2'?['sl']: set==='sl'?['x2']:[];
+    $$('#cmp [data-c]').forEach(el=>el.classList.toggle('col-hide',hide.includes(el.dataset.c)));
+    $$('.seg button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.set===set));
+    // re-evaluate winners among visible columns
+    rows.filter(r=>!r.g).forEach((r,i)=>{});
+  }
+  $$('.seg button').forEach(b=>b.addEventListener('click',()=>setCols(b.dataset.set)));
+
+  /* ---------- bars ---------- */
+  function bars(el,data,max,unit,lowBetter){
+    el.innerHTML=data.map(d=>`<div class="brow"><span>${d.n}</span><div class="track"><div class="fill" style="width:${Math.max(2,d.v/max*100)}%;background:${d.c};${d.dim?'opacity:.45':''}"></div></div><span class="val num">${d.t??d.v+unit}</span></div>`).join('');
+  }
+  bars($('#battBars'),[
+    {n:'X3 rasmiy',v:135,c:C.x3},{n:'X3 real',v:100,c:C.x3,dim:1,t:'~100'},
+    {n:'X2 rasmiy',v:90,c:C.x2},{n:'X2 real',v:80,c:C.x2,dim:1,t:'~80'},
+    {n:'SL2 rasmiy',v:95,c:C.sl}
+  ],140,'');
+  bars($('#latBars'),[
+    {n:'X3',v:.12,c:C.x3,t:'0.12 ms'},{n:'X2',v:.31,c:C.x2,t:'0.31 ms'},
+    {n:'DeathAdder V4 Pro',v:.20,c:'#5b6778',t:'0.20 ms'},{n:'Keris II Ace',v:.44,c:'#5b6778',t:'0.44 ms'},
+    {n:'Pulsar X2N',v:.84,c:'#5b6778',t:'0.84 ms'}
+  ],.9,'');
+  bars($('#oslttBars'),[
+    {n:'X3 · 1K',v:.12,c:C.x3,t:'0.12 ms'},{n:'X2 · 1K',v:.31,c:C.x2,t:'0.31 ms'},
+    {n:'X3 · 8K',v:.02,c:C.x3,t:'<0.02'},{n:'X2 · 8K',v:.02,c:C.x2,t:'<0.02'}
+  ],.35,'');
+  bars($('#humanBars'),[
+    {n:'X3 · daraja 1',v:175.1,c:C.x3,t:'175.1 ms'},{n:'Sensei Pro',v:176.4,c:'#5b6778',t:'176.4 ms'},{n:'X3 · daraja 3',v:177,c:C.x3,t:'177.0 ms'}
+  ],200,'');
+  bars($('#realBatt'),[
+    {n:'X3',v:100,c:C.x3,t:'~100 s'},{n:'X2',v:80,c:C.x2,t:'~80 s'}
+  ],140,'');
+
+  /* ---------- simple mode ---------- */
+  const sb=$('#simpleBtn');
+  function setSimple(on){document.body.classList.toggle('simple',on);sb.setAttribute('aria-pressed',on);try{localStorage.setItem('x3simple',on?'1':'0')}catch(e){}}
+  let simple=true; try{simple=localStorage.getItem('x3simple')!=='0'}catch(e){}
+  setSimple(simple); sb.addEventListener('click',()=>setSimple(!document.body.classList.contains('simple')));
+
+  /* ---------- presentation ---------- */
+  const pb=$('#presentBtn'), slides=$$('section.slide');
+  pb.addEventListener('click',()=>{const on=!document.documentElement.classList.contains('present');document.documentElement.classList.toggle('present',on);pb.setAttribute('aria-pressed',on);$('#hint').hidden=!on});
+  function cur(){let i=0;slides.forEach((s,j)=>{if(s.getBoundingClientRect().top<innerHeight*.4)i=j});return i}
+  addEventListener('keydown',e=>{
+    if(e.target.matches('input,textarea'))return;
+    let d=0;
+    if(['ArrowRight','PageDown'].includes(e.key))d=1;
+    if(['ArrowLeft','PageUp'].includes(e.key))d=-1;
+    if(!d)return; e.preventDefault();
+    const n=Math.min(slides.length-1,Math.max(0,cur()+d)); slides[n].scrollIntoView({behavior:'smooth'});
+  });
+  const links=$$('.bar nav a');
+  addEventListener('scroll',()=>{const id=slides[cur()].id;links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id))},{passive:true});
+
+  /* ---------- lightbox ---------- */
+  $$('.shot img').forEach(img=>img.addEventListener('click',()=>{
+    const lb=document.createElement('div');lb.className='lightbox';lb.innerHTML=`<img src="${img.src}" alt="${img.alt}">`;
+    lb.addEventListener('click',()=>lb.remove());document.body.appendChild(lb);
+  }));
+  addEventListener('keydown',e=>{if(e.key==='Escape')$$('.lightbox').forEach(l=>l.remove())});
+})();
+</script>
+</body>
+</html>
